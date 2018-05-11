@@ -1,0 +1,96 @@
+attributetype ( 1.3.6.1.4.1.38414.65.1.1
+        NAME 'fdLibreRoamingShareKey'
+        DESC 'Shared Key between Local radius and federation Radius'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.2
+        NAME 'fdLibreRoamingClientTestAccount'
+        DESC 'Test account for testing service availability'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.3
+        NAME 'fdLibreRoamingClientTestPassword'
+        DESC 'Test account for testing service availability'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.4
+        NAME 'fdLibreRoamingEAPMethod'
+        DESC 'Code of EAP method provided'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.5
+        NAME 'fdLibreRoamingFederation'
+        DESC 'WIFI Federation'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.6
+        NAME 'fdLibreRoamingTechnicalContact'
+        DESC 'Technical Account'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.7
+        NAME 'fdLibreRoamingRealm'
+        DESC 'REALM dedicated to this host'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+        SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.8
+        NAME 'fdLibreRoamingClientsLocation'
+        DESC 'Shraed Key between Local radius and federation Radius'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.9 NAME 'fdLibreRoamingPort'
+        DESC 'Port dedicated to Libreroaming endPoint'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.10 NAME 'fdLibreRoamingProxyPort'
+        DESC 'Port dedicated to Libreroaming Proxy endPoint'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.11 NAME 'fdLibreRoamingProxyProxyFile'
+        DESC 'File for proxy : freeradius proxy.conf'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+attributetype ( 1.3.6.1.4.1.38414.65.1.12 NAME 'fdLibreRoamingProxyClientFile'
+        DESC 'File for Clients : freeradius clients.conf'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15)
+
+objectclass ( 1.3.6.1.4.1.38414.65.2.1 NAME 'fdLibreRoamingService'
+        DESC 'Class of Libre Roaming Service'
+        SUP top AUXILIARY
+        MUST ( fdLibreRoamingShareKey $ ipHostNumber $ fdLibreRoamingPort )
+        MAY ( description $ fdLibreRoamingClientTestAccount $ fdLibreRoamingClientTestPassword $ fdLibreRoamingEAPMethod $ fdLibreRoamingFederation $ fdLibreRoamingTechnicalContact $ fdLibreRoamingRealm $ fdLibreRoamingClientsLocation ))
+
+objectclass ( 1.3.6.1.4.1.38414.65.2.2 NAME 'fdLibreRoamingProxyService'
+        DESC 'Class of Libre Roaming Proxy Service'
+        SUP top AUXILIARY
+        MUST ( cn )
+        MAY ( description $ fdLibreRoamingProxyPort $ fdLibreRoamingProxyProxyFile $ fdLibreRoamingProxyClientFile ))
+
