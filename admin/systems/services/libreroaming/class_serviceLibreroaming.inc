@@ -107,7 +107,7 @@ class serviceLibreroaming extends simpleService
         'attrs' => array (
           new OrderedArrayAttribute(
             new PipeSeparatedCompositeAttribute(
-              _('Access Points provide by this host'),
+              _('Access Points provided by this host'),
               'fdLibreRoamingClientsLocation',
               array(
                 new StringAttribute(
